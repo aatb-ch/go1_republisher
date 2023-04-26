@@ -14,4 +14,5 @@ Publish camera/imu/odometry as ROS topics on the Unitree Go1 dogs.
 to use:
 
 `roslaunch go1_republisher camera.launch` will publish a camera as Image topic
+
 `roslaunch go1_republisher imu_odom.launch` will publish a `/imu` topic and `/odom` topic
