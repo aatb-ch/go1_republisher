@@ -15,4 +15,4 @@ to use:
 
 `roslaunch go1_republisher camera.launch` will publish a camera as Image topic
 
-`roslaunch go1_republisher imu_odom.launch` will publish a `/imu` topic and `/odom` topic
+`roslaunch go1_republisher imu_odom.launch` will publish `/imu` and `/odom` topics
