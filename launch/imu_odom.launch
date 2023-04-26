@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="go1_republisher" name="imu_odom_republisher" type="imu_odom" output="screen"></node>
+</launch>

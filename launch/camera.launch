@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="go1_republisher" name="camera_republisher" type="camera.py" output="screen"></node>
+</launch>
