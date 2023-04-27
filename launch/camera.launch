@@ -1,3 +1,8 @@
 <launch>
-    <node pkg="go1_republisher" name="camera_republisher" type="camera.py" output="screen"></node>
+	
+	<arg name="deviceId" default="1" />
+
+	<node pkg="go1_republisher" name="camera_republisher" type="camera.py" output="screen">
+		<param name="deviceId" value="$(arg deviceId)"/>	
+	</node>
 </launch>

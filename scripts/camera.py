@@ -4,27 +4,29 @@ import rospy
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 
-vid = cv2.VideoCapture(1)
-
-print(cv2.__version__)
-
-# vid.set(cv2.CAP_PROP_FOURCC,cv2.VideoWriter_fourcc('M','J','P','G'))
-
-vid.set(cv2.CAP_PROP_FRAME_WIDTH, 1856) # stereo feed, divide this by 2 if you want left image, offset crop half-width to get right image
-vid.set(cv2.CAP_PROP_FRAME_HEIGHT, 800)
-
 bridge = CvBridge()
+vid = None
 
 def start_node():
+
     rospy.init_node('camera_republisher')
     rospy.loginfo('cam_pub node started')
+
+    deviceId = rospy.get_param('~deviceId')
+    
+    global vid
+    vid = cv2.VideoCapture(deviceId)
+
+    vid.set(cv2.CAP_PROP_FRAME_WIDTH, 1856) # stereo feed, divide this by 2 if you want left image, offset crop half-width to get right image
+    vid.set(cv2.CAP_PROP_FRAME_HEIGHT, 800)
 
     pub_left = rospy.Publisher('camera_front/left/image_raw', Image, queue_size=1)
     pub_right = rospy.Publisher('camera_front/right/image_raw', Image, queue_size=1)
 
     rate = rospy.Rate(25) # 25hz
+    
     while not rospy.is_shutdown():
-        global vid
+        
         ret, frame = vid.read()
         print("capturing frame..")
     
