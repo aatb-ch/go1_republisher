@@ -10,9 +10,10 @@ Publish camera/imu/odometry as ROS topics on the Unitree Go1 dogs.
 - `git clone https://github.com/ros-perception/camera_info_manager_py.git`
 - `git clone https://github.com/aatb-ch/go1_republisher.git`
 - `catkin_make`
+- in `/scripts` do `sudo chmod +x camery.py`
 - source your workspace 
 
-to use:
+# To use:
 
 - in `/scripts` do `sudo chmod +x camery.py`
 - `roslaunch go1_republisher camera.launch` will publish a camera as Image topic
