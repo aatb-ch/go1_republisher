@@ -27,10 +27,12 @@ def start_node():
         global vid
         ret, frame = vid.read()
         print("capturing frame..")
-        img = bridge.cv2_to_imgmsg(frame, "bgr8")
     
-        img_left = img[0:800, 0:928]
-        img_right = img[0:800, 928:1856]
+        frame_left = frame[0:800, 0:928]
+        frame_right = frame[0:800, 928:1856]
+
+        img_left = bridge.cv2_to_imgmsg(frame_left, "bgr8")
+        img_right = bridge.cv2_to_imgmsg(frame_right, "bgr8")
 
         pub_left.publish(img_left)
         pub_right.publish(img_right)

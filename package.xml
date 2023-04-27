@@ -15,7 +15,7 @@
   <build_depend>rospy</build_depend>
   <build_depend>sensor_msgs</build_depend>
   <build_depend>nav_msgs</build_depend>
-  <exec_depend>camera_info_manager_py</exec_depend>
+  <build_depend>camera_info_manager_py</build_depend>
 
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>

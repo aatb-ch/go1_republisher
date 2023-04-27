@@ -13,6 +13,7 @@ Publish camera/imu/odometry as ROS topics on the Unitree Go1 dogs.
 
 to use:
 
+- in `/scripts` do `sudo chmod +x camery.py`
 `roslaunch go1_republisher camera.launch` will publish a camera as Image topic
 
 `roslaunch go1_republisher imu_odom.launch` will publish `/imu` and `/odom` topics
