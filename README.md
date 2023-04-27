@@ -6,14 +6,14 @@ Publish camera/imu/odometry as ROS topics on the Unitree Go1 dogs.
 - create a new catkin ws on the desktop like `mkdir custom_ws`
 - `cd custom_ws`
 - `mkdir src`
-- git clone `unitree_legged_sdk` there
-- git clone this repo there
+- `git clone https://github.com/unitreerobotics/unitree_legged_sdk.git`
+- `git clone https://github.com/ros-perception/camera_info_manager_py`
+- `git clone https://github.com/aatb-ch/go1_republisher.git`
 - `catkin_make`
 - source your workspace 
 
 to use:
 
 - in `/scripts` do `sudo chmod +x camery.py`
-`roslaunch go1_republisher camera.launch` will publish a camera as Image topic
-
-`roslaunch go1_republisher imu_odom.launch` will publish `/imu` and `/odom` topics
+- `roslaunch go1_republisher camera.launch` will publish a camera as Image topic
+- `roslaunch go1_republisher imu_odom.launch` will publish `/imu` and `/odom` topics
