@@ -16,10 +16,10 @@ vid.set(cv2.CAP_PROP_FRAME_HEIGHT, 800)
 bridge = CvBridge()
 
 def start_node():
-    rospy.init_node('camera_publisher')
+    rospy.init_node('camera_republisher')
     rospy.loginfo('cam_pub node started')
 
-    pub = rospy.Publisher('aatb/front_raw', Image, queue_size=1)
+    pub = rospy.Publisher('camera/image_raw', Image, queue_size=1)
 
     rate = rospy.Rate(25) # 25hz
     while not rospy.is_shutdown():
