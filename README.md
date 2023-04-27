@@ -22,5 +22,12 @@ catkin_make
 
 # To use:
 
-- `roslaunch go1_republisher camera.launch` will publish a camera as Image topic
+- `roslaunch go1_republisher camera.launch` will publish video device 1 by default (front camera) as 2 Image topics for left/right
 - `roslaunch go1_republisher imu_odom.launch` will publish `/imu` and `/odom` topics
+
+# TODO
+
+- better namespacing to launch multiple instances
+- calibration file loading
+- rectification node
+- rewrite Python camera node as C++
