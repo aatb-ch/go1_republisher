@@ -10,7 +10,7 @@ print(cv2.__version__)
 
 # vid.set(cv2.CAP_PROP_FOURCC,cv2.VideoWriter_fourcc('M','J','P','G'))
 
-vid.set(cv2.CAP_PROP_FRAME_WIDTH, 928) # 1856
+vid.set(cv2.CAP_PROP_FRAME_WIDTH, 1856) # stereo feed, divide this by 2 if you want left image, offset crop half-width to get right image
 vid.set(cv2.CAP_PROP_FRAME_HEIGHT, 800)
 
 bridge = CvBridge()
