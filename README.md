@@ -7,7 +7,7 @@ Publish camera/imu/odometry as ROS topics on the Unitree Go1 dogs.
 - `cd custom_ws`
 - `mkdir src`
 - `git clone https://github.com/unitreerobotics/unitree_legged_sdk.git`
-- `git clone https://github.com/ros-perception/camera_info_manager_py`
+- `git clone https://github.com/ros-perception/camera_info_manager_py.git`
 - `git clone https://github.com/aatb-ch/go1_republisher.git`
 - `catkin_make`
 - source your workspace 
