@@ -3,17 +3,28 @@ import cv2
 import rospy
 from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
+from camera_info_manager import CameraInfoManager
 
 bridge = CvBridge()
+left_ci = CameraInfoManager(cname='camera_front', namespace='left')
+right_ci = CameraInfoManager(cname='camera_front', namespace='right')
+
 vid = None
 
 def start_node():
 
-    rospy.init_node('camera_republisher')
+    rospy.init_node('camera_republisher', anonymous=True)
     rospy.loginfo('cam_pub node started')
 
-    deviceId = rospy.get_param('~deviceId')
-    
+    deviceId = rospy.get_param('~device_id')
+    calibration_left = rospy.get_param('~calibration_left')
+    calibration_right = rospy.get_param('~calibration_right')
+
+    if (calibration_left):
+        calibration_left.loadCameraInfo()
+    if (calibration_right):
+        calibration_right.loadCameraInfo()
+
     global vid
     vid = cv2.VideoCapture(deviceId)
 
