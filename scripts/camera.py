@@ -19,15 +19,21 @@ def start_node():
     rospy.init_node('camera_republisher')
     rospy.loginfo('cam_pub node started')
 
-    pub = rospy.Publisher('camera/image_raw', Image, queue_size=1)
+    pub_left = rospy.Publisher('camera_front/left/image_raw', Image, queue_size=1)
+    pub_right = rospy.Publisher('camera_front/right/image_raw', Image, queue_size=1)
 
     rate = rospy.Rate(25) # 25hz
     while not rospy.is_shutdown():
         global vid
         ret, frame = vid.read()
         print("capturing frame..")
-        imgMsg = bridge.cv2_to_imgmsg(frame, "bgr8")
-        pub.publish(imgMsg)
+        img = bridge.cv2_to_imgmsg(frame, "bgr8")
+    
+        img_left = img[0:800, 0:928]
+        img_right = img[0:800, 928:1856]
+
+        pub_left.publish(img_left)
+        pub_right.publish(img_right)
 
         rate.sleep()
 

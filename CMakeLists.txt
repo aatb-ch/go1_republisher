@@ -4,10 +4,10 @@ project(go1_republisher)
 add_compile_options(-std=c++11)
 
 ## Find catkin and any catkin packages
-find_package(catkin REQUIRED COMPONENTS rospy roscpp sensor_msgs nav_msgs)
+find_package(catkin REQUIRED COMPONENTS rospy roscpp sensor_msgs nav_msgs camera_info_manager_py)
 
 ## Declare a catkin package
-catkin_package(CATKIN_DEPENDS rospy roscpp message_runtime)
+catkin_package(CATKIN_DEPENDS rospy roscpp message_runtime camera_info_manager_py)
 
 link_directories(${CMAKE_SOURCE_DIR}/unitree_legged_sdk/lib/cpp/arm64)
 
