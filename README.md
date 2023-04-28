@@ -17,17 +17,29 @@ cd ~/custom_ws
 catkin_make
 ```
 
-- in `/scripts` do `sudo chmod +x camery.py`
+- in `/scripts` do `sudo chmod +x mono.py` and `sudo chmod +x stereo.py`
 - source your workspace 
 
 # To use:
 
-- `roslaunch go1_republisher camera.launch` will publish video device 1 by default (front camera) as 2 Image topics for left/right
-- `roslaunch go1_republisher imu_odom.launch` will publish `/imu` and `/odom` topics
+## Mono & Stereo camera publishing
+
+To publish mono (left channel):
+- `roslaunch go1_republisher mono.launch`
+
+To publish stereo channels (left/right):
+- `roslaunch go1_republisher mono.launch`
+
+To enable image post processing for rectification (dont forget to calibrate your camera and replace yaml calibration data):
+- `roslaunch go1_republisher proc_mono.launch`
+- `roslaunch go1_republisher proc_stereo.launch`
+
+## Imu and Odometry
+
+To publish the imu and odom channels:
+- `roslaunch go1_republisher imu_odom.launch`
 
 # TODO
 
 - better namespacing to launch multiple instances
-- calibration file loading
-- rectification node
 - rewrite Python camera node as C++
