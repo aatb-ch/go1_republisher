@@ -1,0 +1,16 @@
+<launch>
+
+	<!--
+		camera_names:
+		  - camera_face: jetson13, id=1
+		  - camera_chin: jetson13, id=0
+		  - camera_left: jetson14, id=0
+		  - camera_right: jetson14, id=1
+		  - camera_rearDown: jetson15, id=0
+	!-->
+	
+	<arg name="camera_name" default="camera_face" />
+
+	<node pkg="stereo_image_proc" type="stereo_image_proc" name="stereo_image_proc" ns="$(arg camera_name)"></node>
+
+</launch>

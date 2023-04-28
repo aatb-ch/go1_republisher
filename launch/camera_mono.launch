@@ -1,0 +1,22 @@
+<launch>
+
+	<!--
+		camera_names:
+		  - camera_face: jetson13, id=1
+		  - camera_chin: jetson13, id=0
+		  - camera_left: jetson14, id=0
+		  - camera_right: jetson14, id=1
+		  - camera_rearDown: jetson15, id=0
+	!-->
+	
+	<arg name="device_id" default="1" />
+	<arg name="camera_name" default="camera_face" />
+	<arg name="calibration_left" default="package://go1_republisher/calibrations/left.yaml" />
+
+	<node pkg="go1_republisher" name="camera_republisher" type="mono.py" output="screen" ns="$(arg camera_name)">
+		<param name="device_id" value="$(arg device_id)"/>
+		<param name="camera_name" value="$(arg camera_name)"/>
+		<param name="calibration_left" value="$(arg calibration_left)"/>
+	</node>
+
+</launch>
