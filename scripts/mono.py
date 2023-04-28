@@ -20,7 +20,7 @@ def start_node():
     camera_name = rospy.get_param('~camera_name')
     calibration_left = rospy.get_param('~calibration_left')
 
-    left_ci = CameraInfoManager(cname=camera_name+'/left', namespace='left')
+    left_ci = CameraInfoManager(cname=camera_name+'/left', namespace='')
 
     if calibration_left:
         left_ci.setURL(calibration_left)
@@ -32,9 +32,9 @@ def start_node():
     vid.set(cv2.CAP_PROP_FRAME_WIDTH, 1856) # stereo feed, divide this by 2 if you want left image, offset crop half-width to get right image
     vid.set(cv2.CAP_PROP_FRAME_HEIGHT, 800)
 
-    pub_left = rospy.Publisher(rospy.get_namespace()+'left/image_raw', Image, queue_size=1)
+    pub_left = rospy.Publisher(rospy.get_namespace()+'/image_raw', Image, queue_size=1)
     
-    pub_left_ci = rospy.Publisher(rospy.get_namespace()+'left/camera_info', CameraInfo, queue_size=1)
+    pub_left_ci = rospy.Publisher(rospy.get_namespace()+'/camera_info', CameraInfo, queue_size=1)
 
     rate = rospy.Rate(25) # 25hz
     count = 0

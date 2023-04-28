@@ -11,6 +11,6 @@
 	
 	<arg name="camera_name" default="camera_face" />
 
-	<node pkg="image_proc" type="image_proc" name="image_proc" ns="$(arg camera_name)/left"></node>
+	<node pkg="image_proc" type="image_proc" name="image_proc" ns="$(arg camera_name)"></node>
 
 </launch>
