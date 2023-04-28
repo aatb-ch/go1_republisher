@@ -25,10 +25,10 @@ catkin_make
 ## Mono & Stereo camera publishing
 
 To publish mono (left channel):
-- `roslaunch go1_republisher mono.launch`
+- `roslaunch go1_republisher camera_mono.launch`
 
 To publish stereo channels (left/right):
-- `roslaunch go1_republisher mono.launch`
+- `roslaunch go1_republisher camera_stereo.launch`
 
 To enable image post processing for rectification (dont forget to calibrate your camera and replace yaml calibration data):
 - `roslaunch go1_republisher proc_mono.launch`
