@@ -1,6 +1,7 @@
 #include <ros/ros.h>
 #include <sensor_msgs/Imu.h>
 #include <nav_msgs/Odometry.h>
+#include <tf/transform_broadcaster.h>
 #include "unitree_legged_sdk/unitree_legged_sdk.h"
 #include <chrono>
 #include <pthread.h>
@@ -49,6 +50,7 @@ int main(int argc, char **argv)
 	ros::NodeHandle nh;
 	pub_imu = nh.advertise<sensor_msgs::Imu>("imu", 1);
 	pub_odom = nh.advertise<nav_msgs::Odometry>("odom", 1);
+	tf::TransformBroadcaster odom_broadcaster;
 
 	LoopFunc loop_udpSend("high_udp_send", 0.002, 3, boost::bind(&Custom::highUdpSend, &custom));
 	LoopFunc loop_udpRecv("high_udp_recv", 0.002, 3, boost::bind(&Custom::highUdpRecv, &custom));
@@ -108,6 +110,23 @@ int main(int argc, char **argv)
 		msg_odom.twist.twist.angular.z = custom.high_state.velocity[2];
 
 		pub_odom.publish(msg_odom);
+
+		//first, we'll publish the transform over tf
+		geometry_msgs::TransformStamped odom_trans;
+		odom_trans.header.stamp = current_time;
+		odom_trans.header.frame_id = "odom";
+		odom_trans.child_frame_id = "base_link";
+
+		odom_trans.transform.translation.x = custom.high_state.position[0];
+		odom_trans.transform.translation.y = custom.high_state.position[1];
+		odom_trans.transform.translation.z = custom.high_state.position[2];
+		odom_trans.transform.rotation.w = custom.high_state.imu.quaternion[0];
+		odom_trans.transform.rotation.x = custom.high_state.imu.quaternion[1];
+		odom_trans.transform.rotation.y = custom.high_state.imu.quaternion[2];
+		odom_trans.transform.rotation.z = custom.high_state.imu.quaternion[3];
+
+		//send the transform
+		odom_broadcaster.sendTransform(odom_trans);
 
 		ros::spinOnce();
 
