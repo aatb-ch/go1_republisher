@@ -36,7 +36,7 @@ To enable image post processing for rectification (dont forget to calibrate your
 
 ## Imu and Odometry
 
-To publish the imu and odom channels:
+To publish the imu and odom topics/tf:
 - `roslaunch go1_republisher imu_odom.launch`
 
 # TODO
