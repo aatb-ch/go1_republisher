@@ -42,4 +42,6 @@ To publish the imu and odom topics/tf:
 # TODO
 
 - better namespacing to launch multiple instances
-- rewrite Python camera node as C++
+- rewrite Python camera node as C++, need to figure out why stream open error..
+- use image_transport
+- broadcast_tf as launch param
