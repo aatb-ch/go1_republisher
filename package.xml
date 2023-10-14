@@ -4,7 +4,7 @@
   <version>0.1.0</version>
   <description>Unitree Go1 Republisher node</description>
 
-  <maintainer email="hi@aatb.ch">AATB GmbH / Thibault Brevet</maintainer>
+  <maintainer email="hi@aatb.ch">AATB GmbH / Thibault Brevet</maintainer>
   <license>MIT</license>
   <url type="website">https://github.com/aatb-ch/go1-republisher</url>
   <author email="hi@aatb.ch">AATB GmbH / Thibault Brevet</author>
@@ -14,17 +14,26 @@
   <build_depend>tf</build_depend>
   <build_depend>roscpp</build_depend>
   <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
   <build_depend>sensor_msgs</build_depend>
   <build_depend>nav_msgs</build_depend>
+  <build_depend>camera_info_manager</build_depend>
   <build_depend>camera_info_manager_py</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>image_transport</build_depend>
+  
 
   <exec_depend>tf</exec_depend>
   <exec_depend>roscpp</exec_depend>
   <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>nav_msgs</exec_depend>
   <exec_depend>message_runtime</exec_depend>
+  <exec_depend>camera_info_manager</exec_depend>
   <exec_depend>camera_info_manager_py</exec_depend>
+  <exec_depend>cv_bridge</exec_depend>
+  <exec_depend>image_transport</exec_depend>
 
 </package>
 

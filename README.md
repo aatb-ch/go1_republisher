@@ -12,8 +12,10 @@ mkdir src
 cd src
 git clone https://github.com/unitreerobotics/unitree_legged_sdk.git
 git clone https://github.com/ros-perception/camera_info_manager_py.git
+git clone https://github.com/unitreerobotics/UnitreecameraSDK.git
 git clone https://github.com/aatb-ch/go1_republisher.git
 cd ~/custom_ws
+sudo apt install ros-melodic-camera-info-manager
 catkin_make
 ```
 

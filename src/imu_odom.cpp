@@ -129,7 +129,6 @@ int main(int argc, char **argv)
 		odom_broadcaster.sendTransform(odom_trans);
 
 		ros::spinOnce();
-
 		loop_rate.sleep();
   	}
 
